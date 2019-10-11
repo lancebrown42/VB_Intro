@@ -25,60 +25,56 @@ Partial Class Form1
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.lblSum = New System.Windows.Forms.Label()
-        Me.txtScore1 = New System.Windows.Forms.TextBox()
-        Me.txtScore2 = New System.Windows.Forms.TextBox()
+        Me.txtNumber1 = New System.Windows.Forms.TextBox()
+        Me.txtNumber2 = New System.Windows.Forms.TextBox()
         Me.btnSubmit = New System.Windows.Forms.Button()
         Me.btnClear = New System.Windows.Forms.Button()
         Me.btnExit = New System.Windows.Forms.Button()
-        Me.txtScore3 = New System.Windows.Forms.TextBox()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.txtName = New System.Windows.Forms.TextBox()
-        Me.Label4 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(57, 78)
+        Me.Label1.Location = New System.Drawing.Point(29, 33)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(47, 13)
+        Me.Label1.Size = New System.Drawing.Size(89, 13)
         Me.Label1.TabIndex = 0
-        Me.Label1.Text = "Score 1:"
+        Me.Label1.Text = "Enter first number"
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(57, 113)
+        Me.Label2.Location = New System.Drawing.Point(12, 68)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(47, 13)
+        Me.Label2.Size = New System.Drawing.Size(108, 13)
         Me.Label2.TabIndex = 1
-        Me.Label2.Text = "Score 2:"
+        Me.Label2.Text = "Enter second number"
         '
         'lblSum
         '
         Me.lblSum.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.lblSum.Location = New System.Drawing.Point(70, 173)
+        Me.lblSum.Location = New System.Drawing.Point(79, 126)
         Me.lblSum.Name = "lblSum"
-        Me.lblSum.Size = New System.Drawing.Size(140, 53)
+        Me.lblSum.Size = New System.Drawing.Size(100, 23)
         Me.lblSum.TabIndex = 2
         '
-        'txtScore1
+        'txtNumber1
         '
-        Me.txtScore1.Location = New System.Drawing.Point(110, 71)
-        Me.txtScore1.Name = "txtScore1"
-        Me.txtScore1.Size = New System.Drawing.Size(100, 20)
-        Me.txtScore1.TabIndex = 2
+        Me.txtNumber1.Location = New System.Drawing.Point(143, 25)
+        Me.txtNumber1.Name = "txtNumber1"
+        Me.txtNumber1.Size = New System.Drawing.Size(100, 20)
+        Me.txtNumber1.TabIndex = 3
         '
-        'txtScore2
+        'txtNumber2
         '
-        Me.txtScore2.Location = New System.Drawing.Point(110, 106)
-        Me.txtScore2.Name = "txtScore2"
-        Me.txtScore2.Size = New System.Drawing.Size(100, 20)
-        Me.txtScore2.TabIndex = 3
+        Me.txtNumber2.Location = New System.Drawing.Point(143, 61)
+        Me.txtNumber2.Name = "txtNumber2"
+        Me.txtNumber2.Size = New System.Drawing.Size(100, 20)
+        Me.txtNumber2.TabIndex = 4
         '
         'btnSubmit
         '
-        Me.btnSubmit.Location = New System.Drawing.Point(14, 241)
+        Me.btnSubmit.Location = New System.Drawing.Point(15, 196)
         Me.btnSubmit.Name = "btnSubmit"
         Me.btnSubmit.Size = New System.Drawing.Size(75, 23)
         Me.btnSubmit.TabIndex = 5
@@ -87,7 +83,7 @@ Partial Class Form1
         '
         'btnClear
         '
-        Me.btnClear.Location = New System.Drawing.Point(103, 241)
+        Me.btnClear.Location = New System.Drawing.Point(104, 196)
         Me.btnClear.Name = "btnClear"
         Me.btnClear.Size = New System.Drawing.Size(75, 23)
         Me.btnClear.TabIndex = 6
@@ -96,59 +92,23 @@ Partial Class Form1
         '
         'btnExit
         '
-        Me.btnExit.Location = New System.Drawing.Point(195, 241)
+        Me.btnExit.Location = New System.Drawing.Point(196, 196)
         Me.btnExit.Name = "btnExit"
         Me.btnExit.Size = New System.Drawing.Size(75, 23)
         Me.btnExit.TabIndex = 7
         Me.btnExit.Text = "Exit"
         Me.btnExit.UseVisualStyleBackColor = True
         '
-        'txtScore3
-        '
-        Me.txtScore3.Location = New System.Drawing.Point(110, 139)
-        Me.txtScore3.Name = "txtScore3"
-        Me.txtScore3.Size = New System.Drawing.Size(100, 20)
-        Me.txtScore3.TabIndex = 4
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(57, 146)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(47, 13)
-        Me.Label3.TabIndex = 8
-        Me.Label3.Text = "Score 3:"
-        '
-        'txtName
-        '
-        Me.txtName.Location = New System.Drawing.Point(110, 34)
-        Me.txtName.Name = "txtName"
-        Me.txtName.Size = New System.Drawing.Size(100, 20)
-        Me.txtName.TabIndex = 1
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(38, 37)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(66, 13)
-        Me.Label4.TabIndex = 10
-        Me.Label4.Text = "Enter Name:"
-        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(284, 293)
-        Me.Controls.Add(Me.txtName)
-        Me.Controls.Add(Me.Label4)
-        Me.Controls.Add(Me.txtScore3)
-        Me.Controls.Add(Me.Label3)
+        Me.ClientSize = New System.Drawing.Size(284, 262)
         Me.Controls.Add(Me.btnExit)
         Me.Controls.Add(Me.btnClear)
         Me.Controls.Add(Me.btnSubmit)
-        Me.Controls.Add(Me.txtScore2)
-        Me.Controls.Add(Me.txtScore1)
+        Me.Controls.Add(Me.txtNumber2)
+        Me.Controls.Add(Me.txtNumber1)
         Me.Controls.Add(Me.lblSum)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
@@ -161,13 +121,10 @@ Partial Class Form1
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents lblSum As System.Windows.Forms.Label
-    Friend WithEvents txtScore1 As System.Windows.Forms.TextBox
-    Friend WithEvents txtScore2 As System.Windows.Forms.TextBox
+    Friend WithEvents txtNumber1 As System.Windows.Forms.TextBox
+    Friend WithEvents txtNumber2 As System.Windows.Forms.TextBox
     Friend WithEvents btnSubmit As System.Windows.Forms.Button
     Friend WithEvents btnClear As System.Windows.Forms.Button
     Friend WithEvents btnExit As System.Windows.Forms.Button
-    Friend WithEvents txtScore3 As TextBox
-    Friend WithEvents Label3 As Label
-    Friend WithEvents txtName As TextBox
-    Friend WithEvents Label4 As Label
+
 End Class
