@@ -134,6 +134,8 @@ Public Class Form1
 
         'calculate discount
         If blnHourly Then
+            'the following is a failed attempt at being clever
+            'it was contingent on my matrix at the top working
             '    Dim j As Integer = 0 'iterator
             '    Dim k As String 'placeholder for ForEach
             '    For Each k In arrServiceBrackets
@@ -190,16 +192,18 @@ Public Class Form1
 
         'Calculate discount
         dblYtdDiscount = dblYtdPurchase * dblDiscount
+        'cant be more than 200
+        If dblYtdDiscount > 200 Then
+            dblYtdDiscount = 200
+        End If
         dblDiscountDollars = dblPurchase * dblDiscount
         'check if max discount is reached
         If dblYtdDiscount + dblDiscountDollars >= 200 Then
             dblOverage = (dblYtdDiscount + dblDiscountDollars) - 200
             dblDiscountDollars -= dblOverage
         End If
-
-
         dblDiscountedTotal = dblPurchase - dblDiscountDollars
-
+        dblDailyDiscount += dblDiscountedTotal
 
         'Display
         lblDiscountDollars.Text = dblDiscountDollars.ToString("c")
@@ -208,6 +212,8 @@ Public Class Form1
         lblPurchase.Text = dblPurchase.ToString("C")
         lblTotal.Text = dblDiscountedTotal.ToString("c")
         lblAnnualDiscount.Text = dblYtdDiscount.ToString("C")
+        lblDailyDiscountedTotal.Text = dblDailyDiscount.ToString("c")
+        lblDailyGrandTotal.Text = dblDailyDiscount.ToString("c")
 
         grpSaleInfo.Visible = True
 
@@ -216,17 +222,23 @@ Public Class Form1
 
 
     End Sub
-    Private Async Sub Flash(label As Control)
+    Private Async Sub Flash(ctrl As Control)
         Dim i As Integer = 0
         While i < 10
             Await Task.Delay(500)
             If i Mod 2 = 0 Then
-                label.BackColor = defaultColor
+                ctrl.BackColor = defaultColor
             Else
-                label.BackColor = errorColor
+                ctrl.BackColor = errorColor
             End If
             i += 1
 
         End While
+    End Sub
+
+    Private Sub btnSummary_Click(sender As Object, e As EventArgs) Handles btnSummary.Click
+        grpDaily.Visible = Not grpDaily.Visible
+        lblDailyDiscountedTotal.Text = dblDailyDiscount.ToString("c")
+        lblDailyGrandTotal.Text = dblDailyDiscount.ToString("c")
     End Sub
 End Class
