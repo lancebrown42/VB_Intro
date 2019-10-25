@@ -66,6 +66,7 @@ Public Class Form1
         Dim dblYtdDiscount As Double
         Dim dblDiscountDollars As Double
         Dim dblDiscountedTotal As Double
+        Dim dblOverage As Double
 
         'Validate and assign
         If txtName.Text.Length > 0 Then
@@ -188,10 +189,15 @@ Public Class Form1
         End If
 
         'Calculate discount
-        dblYtdDiscount = (dblYtdPurchase * dblDiscount) + (dblPurchase * dblDiscount)
-        'check if max discount is reached
-
+        dblYtdDiscount = dblYtdPurchase * dblDiscount
         dblDiscountDollars = dblPurchase * dblDiscount
+        'check if max discount is reached
+        If dblYtdDiscount + dblDiscountDollars >= 200 Then
+            dblOverage = (dblYtdDiscount + dblDiscountDollars) - 200
+            dblDiscountDollars -= dblOverage
+        End If
+
+
         dblDiscountedTotal = dblPurchase - dblDiscountDollars
 
 
