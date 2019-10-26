@@ -9,12 +9,12 @@
 Public Class Form1
     Dim dblDailyTotal As Double 'class scope vars for running totals
     Dim dblDailyDiscount As Double
-    Dim defaultColor As Color = Color.Empty
-    Dim errorColor As Color = Color.Yellow
-    'The following line didn't work and I don't understand why. 
-    ' ReadOnly arrServiceBrackets()() As Integer = {{0, 0}, {1, 3}, {4, 6}, {7, 10}, {11, 15}, {15, 9999}} 'years of service award brackets in an array, easier to hotswap later. I don't know why I'm making this complicated
-    ReadOnly arrHourlyDiscounts() As Double = {0, 0.1, 0.14, 0.2, 0.25, 0.3} ' hourly discount awards in an array
-    ReadOnly arrManagerDiscounts() As Double = {0, 0.2, 0.24, 0.3, 0.35, 0.4} 'manager discount awards in an array
+    ReadOnly defaultColor As Color = Color.Empty 'constant for default contoller color
+    ReadOnly errorColor As Color = Color.Yellow 'constant for error color
+    Const dblMaxDiscount As Double = 200 'maximum annual discout allowance
+    Private ReadOnly arrServiceBrackets(,) As Integer = {{0, 0}, {1, 3}, {4, 6}, {7, 10}, {11, 15}, {15, Integer.MaxValue - 1}} 'years of service award brackets in an array, easier to hotswap later. I don't know why I'm making this complicated
+    Private ReadOnly arrHourlyDiscounts() As Double = {0, 0.1, 0.14, 0.2, 0.25, 0.3} ' hourly discount awards in an array
+    Private ReadOnly arrManagerDiscounts() As Double = {0, 0.2, 0.24, 0.3, 0.35, 0.4} 'manager discount awards in an array
 
     Private Sub btnExit_Click(sender As Object, e As EventArgs) Handles btnExit.Click
         Close()
@@ -112,7 +112,7 @@ Public Class Form1
             blnHourly = False
         Else
             MessageBox.Show("Please select your employment type")
-            Flash(grpRadios)
+            Flash(grpRadios) 'calls sub that makes the group box flash error color since focus() will check a radio
             Exit Sub
         End If
         If IsNumeric(txtPurchase.Text) Then
@@ -133,73 +133,76 @@ Public Class Form1
         dblDailyTotal += dblPurchase 'increment running total
 
         'calculate discount
+
+        '''***********************************************************
+        '''Note to grader:
+        '''The method by which I did this is pointless for this application, but I wanted
+        '''to make it more scaleable for fun and not hardcode the values in the logic.
+        '''I'm leaving a comment block below containing a hardcoded Select Case
+        '''*************************************************************
+        '''
         If blnHourly Then
-            'the following is a failed attempt at being clever
-            'it was contingent on my matrix at the top working
-            '    Dim j As Integer = 0 'iterator
-            '    Dim k As String 'placeholder for ForEach
-            '    For Each k In arrServiceBrackets
-            '        Select Case intYears
-            '            Case k
-            '                dblDiscount = arrHourlyDiscounts(j)
-            '                j += 1
-            '        End Select
-
-
-            '    Next
-            'Else
-            '    Dim j As Integer = 0 'iterator
-            '    Dim k As String 'placeholder for ForEach
-            '    For Each k In arrServiceBrackets
-            '        Select Case intYears
-            '            Case k
-            '                dblDiscount = arrManagerDiscounts(j)
-            '                j += 1
-            '        End Select
-            '    Next
-            Select Case intYears
-                Case 0
-                    dblDiscount = arrHourlyDiscounts(0)
-                Case 1 To 3
-                    dblDiscount = arrHourlyDiscounts(1)
-                Case 4 To 6
-                    dblDiscount = arrHourlyDiscounts(2)
-                Case 7 To 10
-                    dblDiscount = arrHourlyDiscounts(3)
-                Case 11 To 15
-                    dblDiscount = arrHourlyDiscounts(4)
-                Case Is > 15
-                    dblDiscount = arrHourlyDiscounts(5)
-
-            End Select
+            For pair As Integer = 0 To (arrServiceBrackets.Length / 2) - 1 'for each range of years in the array of service brackets
+                Select Case intYears
+                    Case arrServiceBrackets(pair, 0) To arrServiceBrackets(pair, 1)
+                        dblDiscount = arrHourlyDiscounts(pair)
+                        Exit For
+                End Select
+            Next
         Else
-            Select Case intYears
-                Case 0
-                    dblDiscount = arrManagerDiscounts(0)
-                Case 1 To 3
-                    dblDiscount = arrManagerDiscounts(1)
-                Case 4 To 6
-                    dblDiscount = arrManagerDiscounts(2)
-                Case 7 To 10
-                    dblDiscount = arrManagerDiscounts(3)
-                Case 11 To 15
-                    dblDiscount = arrManagerDiscounts(4)
-                Case Is > 15
-                    dblDiscount = arrManagerDiscounts(5)
+            For pair As Integer = 0 To (arrServiceBrackets.Length / 2) - 1 'for each range of years in the array of service brackets
+                Select Case intYears
+                    Case arrServiceBrackets(pair, 0) To arrServiceBrackets(pair, 1)
+                        dblDiscount = arrManagerDiscounts(pair)
+                        Exit For
+                End Select
+            Next
+            '**************************************
+            'Regular Select Case below
+            '**************************************
+            '    Select Case intYears
+            '        Case 0
+            '            dblDiscount = arrHourlyDiscounts(0)
+            '        Case 1 To 3
+            '            dblDiscount = arrHourlyDiscounts(1)
+            '        Case 4 To 6
+            '            dblDiscount = arrHourlyDiscounts(2)
+            '        Case 7 To 10
+            '            dblDiscount = arrHourlyDiscounts(3)
+            '        Case 11 To 15
+            '            dblDiscount = arrHourlyDiscounts(4)
+            '        Case Is > 15
+            '            dblDiscount = arrHourlyDiscounts(5)
 
-            End Select
+            '    End Select
+            'Else
+            '    Select Case intYears
+            '        Case 0
+            '            dblDiscount = arrManagerDiscounts(0)
+            '        Case 1 To 3
+            '            dblDiscount = arrManagerDiscounts(1)
+            '        Case 4 To 6
+            '            dblDiscount = arrManagerDiscounts(2)
+            '        Case 7 To 10
+            '            dblDiscount = arrManagerDiscounts(3)
+            '        Case 11 To 15
+            '            dblDiscount = arrManagerDiscounts(4)
+            '        Case Is > 15
+            '            dblDiscount = arrManagerDiscounts(5)
+
+            '    End Select
         End If
 
         'Calculate discount
         dblYtdDiscount = dblYtdPurchase * dblDiscount
-        'cant be more than 200
-        If dblYtdDiscount > 200 Then
-            dblYtdDiscount = 200
+        'cant be more than max discout
+        If dblYtdDiscount > dblMaxDiscount Then
+            dblYtdDiscount = dblMaxDiscount
         End If
         dblDiscountDollars = dblPurchase * dblDiscount
         'check if max discount is reached
-        If dblYtdDiscount + dblDiscountDollars >= 200 Then
-            dblOverage = (dblYtdDiscount + dblDiscountDollars) - 200
+        If dblYtdDiscount + dblDiscountDollars >= dblMaxDiscount Then
+            dblOverage = (dblYtdDiscount + dblDiscountDollars) - dblMaxDiscount
             dblDiscountDollars -= dblOverage
         End If
         dblDiscountedTotal = dblPurchase - dblDiscountDollars
@@ -213,7 +216,7 @@ Public Class Form1
         lblTotal.Text = dblDiscountedTotal.ToString("c")
         lblAnnualDiscount.Text = dblYtdDiscount.ToString("C")
         lblDailyDiscountedTotal.Text = dblDailyDiscount.ToString("c")
-        lblDailyGrandTotal.Text = dblDailyDiscount.ToString("c")
+        lblDailyGrandTotal.Text = dblDailyTotal.ToString("c")
 
         grpSaleInfo.Visible = True
 
@@ -222,6 +225,12 @@ Public Class Form1
 
 
     End Sub
+    Private Sub btnSummary_Click(sender As Object, e As EventArgs) Handles btnSummary.Click
+        grpDaily.Visible = Not grpDaily.Visible
+        lblDailyDiscountedTotal.Text = dblDailyDiscount.ToString("c")
+        lblDailyGrandTotal.Text = dblDailyTotal.ToString("c")
+    End Sub
+    'sub for making a control flash error color on input error validation
     Private Async Sub Flash(ctrl As Control)
         Dim i As Integer = 0
         While i < 10
@@ -234,11 +243,5 @@ Public Class Form1
             i += 1
 
         End While
-    End Sub
-
-    Private Sub btnSummary_Click(sender As Object, e As EventArgs) Handles btnSummary.Click
-        grpDaily.Visible = Not grpDaily.Visible
-        lblDailyDiscountedTotal.Text = dblDailyDiscount.ToString("c")
-        lblDailyGrandTotal.Text = dblDailyDiscount.ToString("c")
     End Sub
 End Class

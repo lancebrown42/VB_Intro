@@ -104,7 +104,7 @@ Partial Class Form1
         Me.radManagement.Location = New System.Drawing.Point(14, 48)
         Me.radManagement.Name = "radManagement"
         Me.radManagement.Size = New System.Drawing.Size(87, 17)
-        Me.radManagement.TabIndex = 1
+        Me.radManagement.TabIndex = 3
         Me.radManagement.TabStop = True
         Me.radManagement.Tag = ""
         Me.radManagement.Text = "Management"
@@ -116,7 +116,7 @@ Partial Class Form1
         Me.radHourly.Location = New System.Drawing.Point(14, 25)
         Me.radHourly.Name = "radHourly"
         Me.radHourly.Size = New System.Drawing.Size(55, 17)
-        Me.radHourly.TabIndex = 0
+        Me.radHourly.TabIndex = 3
         Me.radHourly.TabStop = True
         Me.radHourly.Tag = ""
         Me.radHourly.Text = "Hourly"
@@ -132,9 +132,9 @@ Partial Class Form1
         '
         'btnCalculate
         '
-        Me.btnCalculate.Location = New System.Drawing.Point(55, 307)
+        Me.btnCalculate.Location = New System.Drawing.Point(55, 299)
         Me.btnCalculate.Name = "btnCalculate"
-        Me.btnCalculate.Size = New System.Drawing.Size(75, 23)
+        Me.btnCalculate.Size = New System.Drawing.Size(75, 39)
         Me.btnCalculate.TabIndex = 5
         Me.btnCalculate.Text = "Calculate"
         Me.btnCalculate.UseVisualStyleBackColor = True
@@ -159,9 +159,9 @@ Partial Class Form1
         '
         'btnExit
         '
-        Me.btnExit.Location = New System.Drawing.Point(298, 307)
+        Me.btnExit.Location = New System.Drawing.Point(298, 299)
         Me.btnExit.Name = "btnExit"
-        Me.btnExit.Size = New System.Drawing.Size(75, 23)
+        Me.btnExit.Size = New System.Drawing.Size(75, 39)
         Me.btnExit.TabIndex = 8
         Me.btnExit.Text = "Exit"
         Me.btnExit.UseVisualStyleBackColor = True
