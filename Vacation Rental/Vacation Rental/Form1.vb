@@ -1,4 +1,4 @@
-﻿Imports System.Text.RegularExpressions
+Imports System.Text.RegularExpressions
 Public Class Form1
 
     ReadOnly errorColor As Color = Color.Yellow
@@ -48,7 +48,8 @@ Public Class Form1
     End Sub
 
     Private Sub btnClear_Click(sender As Object, e As EventArgs) Handles btnClear.Click
-
+        txtEmail.ResetText()
+        
     End Sub
     Private Sub GetValidateInput(ByRef strFirstName As String, ByRef strLastName As String, ByRef strPhone As String, ByRef strEmail As String, ByRef blnFlorida As Boolean, ByRef strSeason As String, ByRef intLength As Integer)
         If ValidateName(txtFirstName) Then
