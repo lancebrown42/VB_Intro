@@ -1,3 +1,9 @@
+''''''***********************
+'''Lance Brown
+'''11/7/19
+'''Program that accepts several inputs of varying types and returns a calculated total for vacation rental.
+'''Excercise in modularization
+'''*********************************
 Imports System.Text.RegularExpressions
 Public Class Form1
 
@@ -15,16 +21,21 @@ Public Class Form1
         Dim blnFlorida As Boolean
         Dim strSeason As String
         Dim intLength As Integer
+        Dim blnValid As Boolean
 
         Dim dblSubtotal As Double
         Dim dblTax As Double
         Dim dblTotal As Double
 
-        GetValidateInput(strFirstName, strLastName, strPhone, strEmail, blnFlorida, strSeason, intLength)
+        Dim ctrl As Control
+        For Each ctrl In Me.Controls
+            ResetColor(ctrl)
+        Next
+        GetValidateInput(strFirstName, strLastName, strPhone, strEmail, blnFlorida, strSeason, intLength, blnValid)
 
-        Calculate(blnFlorida, strSeason, intLength, dblSubtotal, dblTax, dblTotal)
+        Calculate(blnFlorida, strSeason, intLength, dblSubtotal, dblTax, dblTotal, blnValid)
 
-        Display(strFirstName, strLastName, strPhone, strEmail, dblSubtotal, dblTax, dblTotal)
+        Display(strFirstName, strLastName, strPhone, strEmail, dblSubtotal, dblTax, dblTotal, blnValid)
     End Sub
 
     'Sub to populate the combobox.
@@ -48,22 +59,39 @@ Public Class Form1
     End Sub
 
     Private Sub btnClear_Click(sender As Object, e As EventArgs) Handles btnClear.Click
-        txtEmail.ResetText()
-        
+        Dim ctrl As Control
+        For Each ctrl In Me.Controls
+            If ctrl.Tag = "input" Then
+                ctrl.ResetText()
+                ResetColor(ctrl)
+            ElseIf ctrl.Tag = "combo" Then
+                Dim cbo As ComboBox
+                cbo = ctrl
+                cbo.SelectedIndex = 0
+            End If
+
+        Next
+
     End Sub
-    Private Sub GetValidateInput(ByRef strFirstName As String, ByRef strLastName As String, ByRef strPhone As String, ByRef strEmail As String, ByRef blnFlorida As Boolean, ByRef strSeason As String, ByRef intLength As Integer)
+    Private Sub GetValidateInput(ByRef strFirstName As String, ByRef strLastName As String, ByRef strPhone As String, ByRef strEmail As String, ByRef blnFlorida As Boolean, ByRef strSeason As String, ByRef intLength As Integer, ByRef blnValid As Boolean)
         If ValidateName(txtFirstName) Then
             strFirstName = txtFirstName.Text
+
         Else
+
             Exit Sub
+
         End If
         If ValidateName(txtLastName) Then
             strLastName = txtLastName.Text
+
         Else
+
             Exit Sub
         End If
         If ValidatePhone(txtPhone) Then
             strPhone = txtPhone.Text
+
         Else
             Exit Sub
         End If
@@ -82,6 +110,7 @@ Public Class Form1
             Exit Sub
 
         End If
+        blnValid = True
 
     End Sub
     Private Function ValidateName(ByVal txt As TextBox)
@@ -150,7 +179,10 @@ Public Class Form1
             Return False
         End If
     End Function
-    Private Sub Calculate(ByVal blnFlorida As Boolean, ByVal strSeason As String, ByVal intLength As Integer, ByRef dblSubtotal As Double, ByRef dblTax As Double, ByRef dblTotal As Double)
+    Private Sub Calculate(ByVal blnFlorida As Boolean, ByVal strSeason As String, ByVal intLength As Integer, ByRef dblSubtotal As Double, ByRef dblTax As Double, ByRef dblTotal As Double, ByVal blnValid As Boolean)
+        If Not blnValid Then
+            Exit Sub
+        End If
         Dim dblRate As Double
         Select Case strSeason
             Case arrSeason(0)
@@ -160,7 +192,7 @@ Public Class Form1
             Case arrSeason(2)
                 dblRate = arrSeasonRates(2)
             Case Else
-                MessageBox.Show("something went horribly wrong with the rate calculation")
+                'MessageBox.Show("something went horribly wrong with the rate calculation")
                 Exit Sub
         End Select
         Dim dblDiscount As Double = 0
@@ -177,7 +209,10 @@ Public Class Form1
         End If
         dblTotal = dblSubtotal + dblTax
     End Sub
-    Private Sub Display(ByVal strFirstName As String, ByVal strLastName As String, ByVal strPhone As String, ByVal strEmail As String, ByVal dblSubtotal As Double, ByVal dblTax As Double, ByVal dblTotal As Double)
+    Private Sub Display(ByVal strFirstName As String, ByVal strLastName As String, ByVal strPhone As String, ByVal strEmail As String, ByVal dblSubtotal As Double, ByVal dblTax As Double, ByVal dblTotal As Double, ByVal blnValid As Boolean)
+        If Not blnValid Then
+            Exit Sub
+        End If
         lblOutput.Text = strFirstName & " " & strLastName & vbCrLf & strPhone & vbCrLf & strEmail & vbCrLf & "Subtotal: " & dblSubtotal.ToString("c") & vbCrLf & "Tax: " & dblTax.ToString("c") & vbCrLf & "Total: " & dblTotal.ToString("c")
     End Sub
     Private Sub TextBoxError(txt As TextBox)
@@ -187,5 +222,10 @@ Public Class Form1
     Private Sub ErrColor(ByRef ctrl As Control)
         ctrl.BackColor = errorColor
     End Sub
+    Private Sub ResetColor(ByRef ctrl As Control)
+        ctrl.BackColor = defaultColor
+    End Sub
+
+
 
 End Class

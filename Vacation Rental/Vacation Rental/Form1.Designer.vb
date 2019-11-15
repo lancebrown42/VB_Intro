@@ -48,6 +48,7 @@ Partial Class Form1
         Me.txtFirstName.Name = "txtFirstName"
         Me.txtFirstName.Size = New System.Drawing.Size(100, 20)
         Me.txtFirstName.TabIndex = 0
+        Me.txtFirstName.Tag = "input"
         '
         'txtLastName
         '
@@ -55,6 +56,7 @@ Partial Class Form1
         Me.txtLastName.Name = "txtLastName"
         Me.txtLastName.Size = New System.Drawing.Size(100, 20)
         Me.txtLastName.TabIndex = 1
+        Me.txtLastName.Tag = "input"
         '
         'txtPhone
         '
@@ -62,6 +64,7 @@ Partial Class Form1
         Me.txtPhone.Name = "txtPhone"
         Me.txtPhone.Size = New System.Drawing.Size(100, 20)
         Me.txtPhone.TabIndex = 2
+        Me.txtPhone.Tag = "input"
         '
         'txtEmail
         '
@@ -69,6 +72,7 @@ Partial Class Form1
         Me.txtEmail.Name = "txtEmail"
         Me.txtEmail.Size = New System.Drawing.Size(100, 20)
         Me.txtEmail.TabIndex = 3
+        Me.txtEmail.Tag = "input"
         '
         'txtLength
         '
@@ -76,6 +80,7 @@ Partial Class Form1
         Me.txtLength.Name = "txtLength"
         Me.txtLength.Size = New System.Drawing.Size(100, 20)
         Me.txtLength.TabIndex = 5
+        Me.txtLength.Tag = "input"
         '
         'cboState
         '
@@ -88,6 +93,7 @@ Partial Class Form1
         Me.cboState.Size = New System.Drawing.Size(121, 21)
         Me.cboState.Sorted = True
         Me.cboState.TabIndex = 6
+        Me.cboState.Tag = "combo"
         '
         'btnSubmit
         '
@@ -178,6 +184,7 @@ Partial Class Form1
         Me.cboSeason.Name = "cboSeason"
         Me.cboSeason.Size = New System.Drawing.Size(121, 21)
         Me.cboSeason.TabIndex = 19
+        Me.cboSeason.Tag = "combo"
         '
         'Label7
         '
