@@ -1,18 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{A3034E60-76AC-43AA-99DD-63E33B2E5C39}</ProjectGuid>
+    <ProjectGuid>{A6F31F33-87E1-402F-8245-0AABBE14B198}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <StartupObject>VBAutoCenter.My.MyApplication</StartupObject>
-    <RootNamespace>VBAutoCenter</RootNamespace>
-    <AssemblyName>VBAutoCenter</AssemblyName>
+    <StartupObject>CellPhonePlan.My.MyApplication</StartupObject>
+    <RootNamespace>CellPhonePlan</RootNamespace>
+    <AssemblyName>CellPhonePlan</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>WindowsForms</MyType>
-    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -21,7 +22,7 @@
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\Debug\</OutputPath>
-    <DocumentationFile>VBAutoCenter.xml</DocumentationFile>
+    <DocumentationFile>CellPhonePlan.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -31,7 +32,7 @@
     <DefineTrace>true</DefineTrace>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DocumentationFile>VBAutoCenter.xml</DocumentationFile>
+    <DocumentationFile>CellPhonePlan.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup>
@@ -72,23 +73,25 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="frmMain.Designer.vb">
-      <DependentUpon>frmMain.vb</DependentUpon>
+    <Compile Include="PhoneModule.vb" />
+    <Compile Include="Consts.vb" />
+    <Compile Include="frmFamily.Designer.vb">
+      <DependentUpon>frmFamily.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmFamily.vb">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmMain.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmPurchase.vb">
+    <Compile Include="frmMain.Designer.vb">
+      <DependentUpon>frmMain.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmPurchase.Designer.vb">
-      <DependentUpon>frmPurchase.vb</DependentUpon>
-      <SubType>Form</SubType>
+    <Compile Include="frmIndividual.Designer.vb">
+      <DependentUpon>frmIndividual.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmLease.Designer.vb">
-      <DependentUpon>frmLease.vb</DependentUpon>
-    </Compile>
-    <Compile Include="frmLease.vb">
+    <Compile Include="frmIndividual.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -108,14 +111,14 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="frmFamily.resx">
+      <DependentUpon>frmFamily.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmIndividual.resx">
+      <DependentUpon>frmIndividual.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmPurchase.resx">
-      <DependentUpon>frmPurchase.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmLease.resx">
-      <DependentUpon>frmLease.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
@@ -137,11 +140,4 @@
     <None Include="App.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
 </Project>
