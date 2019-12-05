@@ -22,11 +22,11 @@ Partial Class frmBuy
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
-        Me.TextBox4 = New System.Windows.Forms.TextBox()
-        Me.TextBox5 = New System.Windows.Forms.TextBox()
+        Me.txtFirstName = New System.Windows.Forms.TextBox()
+        Me.txtLastName = New System.Windows.Forms.TextBox()
+        Me.txtDownPayment = New System.Windows.Forms.TextBox()
+        Me.txtInterest = New System.Windows.Forms.TextBox()
+        Me.txtTerm = New System.Windows.Forms.TextBox()
         Me.lbxOutput = New System.Windows.Forms.ListBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -40,40 +40,40 @@ Partial Class frmBuy
         Me.grpInput.SuspendLayout()
         Me.SuspendLayout()
         '
-        'TextBox1
+        'txtFirstName
         '
-        Me.TextBox1.Location = New System.Drawing.Point(5, 10)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(100, 20)
-        Me.TextBox1.TabIndex = 0
+        Me.txtFirstName.Location = New System.Drawing.Point(5, 10)
+        Me.txtFirstName.Name = "txtFirstName"
+        Me.txtFirstName.Size = New System.Drawing.Size(100, 20)
+        Me.txtFirstName.TabIndex = 0
         '
-        'TextBox2
+        'txtLastName
         '
-        Me.TextBox2.Location = New System.Drawing.Point(5, 36)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(100, 20)
-        Me.TextBox2.TabIndex = 1
+        Me.txtLastName.Location = New System.Drawing.Point(5, 36)
+        Me.txtLastName.Name = "txtLastName"
+        Me.txtLastName.Size = New System.Drawing.Size(100, 20)
+        Me.txtLastName.TabIndex = 1
         '
-        'TextBox3
+        'txtDownPayment
         '
-        Me.TextBox3.Location = New System.Drawing.Point(5, 62)
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(100, 20)
-        Me.TextBox3.TabIndex = 2
+        Me.txtDownPayment.Location = New System.Drawing.Point(5, 62)
+        Me.txtDownPayment.Name = "txtDownPayment"
+        Me.txtDownPayment.Size = New System.Drawing.Size(100, 20)
+        Me.txtDownPayment.TabIndex = 2
         '
-        'TextBox4
+        'txtInterest
         '
-        Me.TextBox4.Location = New System.Drawing.Point(5, 89)
-        Me.TextBox4.Name = "TextBox4"
-        Me.TextBox4.Size = New System.Drawing.Size(100, 20)
-        Me.TextBox4.TabIndex = 3
+        Me.txtInterest.Location = New System.Drawing.Point(5, 89)
+        Me.txtInterest.Name = "txtInterest"
+        Me.txtInterest.Size = New System.Drawing.Size(100, 20)
+        Me.txtInterest.TabIndex = 3
         '
-        'TextBox5
+        'txtTerm
         '
-        Me.TextBox5.Location = New System.Drawing.Point(5, 116)
-        Me.TextBox5.Name = "TextBox5"
-        Me.TextBox5.Size = New System.Drawing.Size(100, 20)
-        Me.TextBox5.TabIndex = 4
+        Me.txtTerm.Location = New System.Drawing.Point(5, 116)
+        Me.txtTerm.Name = "txtTerm"
+        Me.txtTerm.Size = New System.Drawing.Size(100, 20)
+        Me.txtTerm.TabIndex = 4
         '
         'lbxOutput
         '
@@ -157,11 +157,11 @@ Partial Class frmBuy
         '
         'grpInput
         '
-        Me.grpInput.Controls.Add(Me.TextBox5)
-        Me.grpInput.Controls.Add(Me.TextBox4)
-        Me.grpInput.Controls.Add(Me.TextBox3)
-        Me.grpInput.Controls.Add(Me.TextBox2)
-        Me.grpInput.Controls.Add(Me.TextBox1)
+        Me.grpInput.Controls.Add(Me.txtTerm)
+        Me.grpInput.Controls.Add(Me.txtInterest)
+        Me.grpInput.Controls.Add(Me.txtDownPayment)
+        Me.grpInput.Controls.Add(Me.txtLastName)
+        Me.grpInput.Controls.Add(Me.txtFirstName)
         Me.grpInput.Location = New System.Drawing.Point(89, 22)
         Me.grpInput.Name = "grpInput"
         Me.grpInput.Size = New System.Drawing.Size(118, 144)
@@ -184,7 +184,7 @@ Partial Class frmBuy
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.lbxOutput)
         Me.Name = "frmBuy"
-        Me.Text = "frmBuy"
+        Me.Text = "At Least It's not Variable Rate"
         Me.grpInput.ResumeLayout(False)
         Me.grpInput.PerformLayout()
         Me.ResumeLayout(False)
@@ -192,11 +192,11 @@ Partial Class frmBuy
 
     End Sub
 
-    Friend WithEvents TextBox1 As TextBox
-    Friend WithEvents TextBox2 As TextBox
-    Friend WithEvents TextBox3 As TextBox
-    Friend WithEvents TextBox4 As TextBox
-    Friend WithEvents TextBox5 As TextBox
+    Friend WithEvents txtFirstName As TextBox
+    Friend WithEvents txtLastName As TextBox
+    Friend WithEvents txtDownPayment As TextBox
+    Friend WithEvents txtInterest As TextBox
+    Friend WithEvents txtTerm As TextBox
     Friend WithEvents lbxOutput As ListBox
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label

@@ -25,12 +25,12 @@ Partial Class frmRent
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.ListBox1 = New System.Windows.Forms.ListBox()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox2 = New System.Windows.Forms.CheckBox()
+        Me.lbxOutput = New System.Windows.Forms.ListBox()
+        Me.txtMonthsToRent = New System.Windows.Forms.TextBox()
+        Me.txtLastName = New System.Windows.Forms.TextBox()
+        Me.txtFirstName = New System.Windows.Forms.TextBox()
+        Me.chkUtilities = New System.Windows.Forms.CheckBox()
+        Me.chkParking = New System.Windows.Forms.CheckBox()
         Me.btnClose = New System.Windows.Forms.Button()
         Me.btnClear = New System.Windows.Forms.Button()
         Me.btnSubmit = New System.Windows.Forms.Button()
@@ -63,56 +63,56 @@ Partial Class frmRent
         Me.Label1.TabIndex = 17
         Me.Label1.Text = "First Name"
         '
-        'ListBox1
+        'lbxOutput
         '
-        Me.ListBox1.FormattingEnabled = True
-        Me.ListBox1.Location = New System.Drawing.Point(279, 29)
-        Me.ListBox1.Name = "ListBox1"
-        Me.ListBox1.Size = New System.Drawing.Size(120, 95)
-        Me.ListBox1.TabIndex = 16
+        Me.lbxOutput.FormattingEnabled = True
+        Me.lbxOutput.Location = New System.Drawing.Point(279, 29)
+        Me.lbxOutput.Name = "lbxOutput"
+        Me.lbxOutput.Size = New System.Drawing.Size(120, 95)
+        Me.lbxOutput.TabIndex = 16
         '
-        'TextBox3
+        'txtMonthsToRent
         '
-        Me.TextBox3.Location = New System.Drawing.Point(98, 81)
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(100, 20)
-        Me.TextBox3.TabIndex = 13
+        Me.txtMonthsToRent.Location = New System.Drawing.Point(98, 81)
+        Me.txtMonthsToRent.Name = "txtMonthsToRent"
+        Me.txtMonthsToRent.Size = New System.Drawing.Size(100, 20)
+        Me.txtMonthsToRent.TabIndex = 13
         '
-        'TextBox2
+        'txtLastName
         '
-        Me.TextBox2.Location = New System.Drawing.Point(98, 55)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(100, 20)
-        Me.TextBox2.TabIndex = 12
+        Me.txtLastName.Location = New System.Drawing.Point(98, 55)
+        Me.txtLastName.Name = "txtLastName"
+        Me.txtLastName.Size = New System.Drawing.Size(100, 20)
+        Me.txtLastName.TabIndex = 12
         '
-        'TextBox1
+        'txtFirstName
         '
-        Me.TextBox1.Location = New System.Drawing.Point(98, 29)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(100, 20)
-        Me.TextBox1.TabIndex = 11
+        Me.txtFirstName.Location = New System.Drawing.Point(98, 29)
+        Me.txtFirstName.Name = "txtFirstName"
+        Me.txtFirstName.Size = New System.Drawing.Size(100, 20)
+        Me.txtFirstName.TabIndex = 11
         '
-        'CheckBox1
+        'chkUtilities
         '
-        Me.CheckBox1.AutoSize = True
-        Me.CheckBox1.Location = New System.Drawing.Point(15, 107)
-        Me.CheckBox1.Name = "CheckBox1"
-        Me.CheckBox1.RightToLeft = System.Windows.Forms.RightToLeft.Yes
-        Me.CheckBox1.Size = New System.Drawing.Size(97, 17)
-        Me.CheckBox1.TabIndex = 20
-        Me.CheckBox1.Text = "Include Utilities"
-        Me.CheckBox1.UseVisualStyleBackColor = True
+        Me.chkUtilities.AutoSize = True
+        Me.chkUtilities.Location = New System.Drawing.Point(15, 107)
+        Me.chkUtilities.Name = "chkUtilities"
+        Me.chkUtilities.RightToLeft = System.Windows.Forms.RightToLeft.Yes
+        Me.chkUtilities.Size = New System.Drawing.Size(97, 17)
+        Me.chkUtilities.TabIndex = 20
+        Me.chkUtilities.Text = "Include Utilities"
+        Me.chkUtilities.UseVisualStyleBackColor = True
         '
-        'CheckBox2
+        'chkParking
         '
-        Me.CheckBox2.AutoSize = True
-        Me.CheckBox2.Location = New System.Drawing.Point(7, 130)
-        Me.CheckBox2.Name = "CheckBox2"
-        Me.CheckBox2.RightToLeft = System.Windows.Forms.RightToLeft.Yes
-        Me.CheckBox2.Size = New System.Drawing.Size(105, 17)
-        Me.CheckBox2.TabIndex = 21
-        Me.CheckBox2.Text = "Covered Parking"
-        Me.CheckBox2.UseVisualStyleBackColor = True
+        Me.chkParking.AutoSize = True
+        Me.chkParking.Location = New System.Drawing.Point(7, 130)
+        Me.chkParking.Name = "chkParking"
+        Me.chkParking.RightToLeft = System.Windows.Forms.RightToLeft.Yes
+        Me.chkParking.Size = New System.Drawing.Size(105, 17)
+        Me.chkParking.TabIndex = 21
+        Me.chkParking.Text = "Covered Parking"
+        Me.chkParking.UseVisualStyleBackColor = True
         '
         'btnClose
         '
@@ -149,17 +149,17 @@ Partial Class frmRent
         Me.Controls.Add(Me.btnClose)
         Me.Controls.Add(Me.btnClear)
         Me.Controls.Add(Me.btnSubmit)
-        Me.Controls.Add(Me.CheckBox2)
-        Me.Controls.Add(Me.CheckBox1)
+        Me.Controls.Add(Me.chkParking)
+        Me.Controls.Add(Me.chkUtilities)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.ListBox1)
-        Me.Controls.Add(Me.TextBox3)
-        Me.Controls.Add(Me.TextBox2)
-        Me.Controls.Add(Me.TextBox1)
+        Me.Controls.Add(Me.lbxOutput)
+        Me.Controls.Add(Me.txtMonthsToRent)
+        Me.Controls.Add(Me.txtLastName)
+        Me.Controls.Add(Me.txtFirstName)
         Me.Name = "frmRent"
-        Me.Text = "frmRent"
+        Me.Text = "What do you have against the American Dream?"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -168,12 +168,12 @@ Partial Class frmRent
     Friend WithEvents Label3 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents Label1 As Label
-    Friend WithEvents ListBox1 As ListBox
-    Friend WithEvents TextBox3 As TextBox
-    Friend WithEvents TextBox2 As TextBox
-    Friend WithEvents TextBox1 As TextBox
-    Friend WithEvents CheckBox1 As CheckBox
-    Friend WithEvents CheckBox2 As CheckBox
+    Friend WithEvents lbxOutput As ListBox
+    Friend WithEvents txtMonthsToRent As TextBox
+    Friend WithEvents txtLastName As TextBox
+    Friend WithEvents txtFirstName As TextBox
+    Friend WithEvents chkUtilities As CheckBox
+    Friend WithEvents chkParking As CheckBox
     Friend WithEvents btnClose As Button
     Friend WithEvents btnClear As Button
     Friend WithEvents btnSubmit As Button
