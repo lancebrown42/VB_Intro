@@ -78,6 +78,7 @@ Partial Class frmBuy
         'lbxOutput
         '
         Me.lbxOutput.FormattingEnabled = True
+        Me.lbxOutput.HorizontalScrollbar = True
         Me.lbxOutput.Location = New System.Drawing.Point(343, 36)
         Me.lbxOutput.Name = "lbxOutput"
         Me.lbxOutput.Size = New System.Drawing.Size(120, 95)

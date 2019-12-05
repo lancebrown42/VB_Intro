@@ -16,10 +16,17 @@ Public Class frmBuy
             input.ResetText()
             input.BackColor = Color.Empty
         Next
+        lbxOutput.Items.Clear()
+
 
     End Sub
 
     Private Sub btnSubmit_Click(sender As Object, e As EventArgs) Handles btnSubmit.Click
+        Dim input As TextBox
+        For Each input In grpInput.Controls
+            input.BackColor = Color.Empty
+        Next
+        lbxOutput.Items.Clear()
         Dim strName As String
         Dim dblDownPayment As Double
         Dim dblInterest As Double
@@ -98,14 +105,14 @@ Public Class frmBuy
     End Function
     Private Sub Calculate(ByVal dblDownPayment As Double, ByVal dblInterest As Double, ByVal intTerm As Integer, ByVal Value As Double, ByRef dblSalePrice As Double, ByRef intNumberPayments As Integer, ByRef dblMonthlyPayment As Double)
         dblSalePrice = Value - dblDownPayment
-        intNumberPayments = intTerm / frmMain.AnnualPayments
+        intNumberPayments = intTerm / Consts.AnnualPayments
         dblMonthlyPayment = MortgageCalc(dblSalePrice, dblInterest, intNumberPayments)
     End Sub
     Private Sub Display(ByVal strName As String, ByVal dblSalePrice As Double, ByVal dblInterest As Double, ByVal dblMonthlyPayment As Double)
         lbxOutput.Items.Add(strName)
-        lbxOutput.Items.Add(dblSalePrice.ToString("c"))
-        lbxOutput.Items.Add(dblInterest.ToString("p"))
-        lbxOutput.Items.Add(dblMonthlyPayment.ToString("c"))
+        lbxOutput.Items.Add("Mortage value " + dblSalePrice.ToString("c"))
+        lbxOutput.Items.Add(dblInterest.ToString("p") + " Interest")
+        lbxOutput.Items.Add("Monthly Payment " + dblMonthlyPayment.ToString("c"))
     End Sub
 
 

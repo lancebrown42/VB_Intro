@@ -74,6 +74,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BuyRentModule.vb" />
+    <Compile Include="Consts.vb" />
     <Compile Include="frmMain.vb">
       <SubType>Form</SubType>
     </Compile>

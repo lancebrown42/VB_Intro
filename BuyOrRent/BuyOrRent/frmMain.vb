@@ -7,7 +7,6 @@
 Public Class frmMain
 
     Public dblValue As Double
-    Public Const AnnualPayments As Integer = 12
 
     Private Sub btnExit_Click(sender As Object, e As EventArgs) Handles btnExit.Click
         Close()
