@@ -4,17 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{02F2B45C-AA50-42CD-9624-A3CB6B92D819}</ProjectGuid>
+    <ProjectGuid>{5DE763CC-122F-4B9B-8074-C050E2C467B9}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <StartupObject>BuyOrRent.My.MyApplication</StartupObject>
-    <RootNamespace>BuyOrRent</RootNamespace>
-    <AssemblyName>BuyOrRent</AssemblyName>
+    <StartupObject>Payroll.My.MyApplication</StartupObject>
+    <RootNamespace>Payroll</RootNamespace>
+    <AssemblyName>Payroll</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>WindowsForms</MyType>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -23,7 +22,7 @@
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\Debug\</OutputPath>
-    <DocumentationFile>BuyOrRent.xml</DocumentationFile>
+    <DocumentationFile>Payroll.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -33,7 +32,7 @@
     <DefineTrace>true</DefineTrace>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DocumentationFile>BuyOrRent.xml</DocumentationFile>
+    <DocumentationFile>Payroll.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup>
@@ -74,8 +73,12 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BuyRentModule.vb" />
-    <Compile Include="Consts.vb" />
+    <Compile Include="frmHourly.Designer.vb">
+      <DependentUpon>frmHourly.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmHourly.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmMain.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -83,16 +86,10 @@
       <DependentUpon>frmMain.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmBuy.Designer.vb">
-      <DependentUpon>frmBuy.vb</DependentUpon>
+    <Compile Include="frmSalary.Designer.vb">
+      <DependentUpon>frmSalary.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmBuy.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmRent.Designer.vb">
-      <DependentUpon>frmRent.vb</DependentUpon>
-    </Compile>
-    <Compile Include="frmRent.vb">
+    <Compile Include="frmSalary.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -110,16 +107,17 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="PayrollModule.vb" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="frmBuy.resx">
-      <DependentUpon>frmBuy.vb</DependentUpon>
+    <EmbeddedResource Include="frmHourly.resx">
+      <DependentUpon>frmHourly.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmRent.resx">
-      <DependentUpon>frmRent.vb</DependentUpon>
+    <EmbeddedResource Include="frmSalary.resx">
+      <DependentUpon>frmSalary.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
