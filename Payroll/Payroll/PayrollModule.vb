@@ -5,6 +5,7 @@
     Public Const OvertimeRate As Double = 1.5
     Public Const FicaRate As Double = 0.062
     Public Const FicaMax As Integer = 125000
+    Public Output As List(Of String) = New List(Of String) From {"Gross Pay: " & vbTab, "FICA: " & vbTab & vbTab, "State Tax: " & vbTab, "Federal Tax: " & vbTab, "Net Pay: " & vbTab & vbTab}
     Public Sub InputError(input As Control)
         input.BackColor = Color.Yellow
         input.Select()
@@ -35,10 +36,10 @@
             MessageBox.Show("Please enter previous gross pay")
             Return False
         End If
-        If Not String.IsNullOrWhiteSpace(cboState.SelectedText) Then
-            strState = cboState.SelectedText
+        If Not String.IsNullOrWhiteSpace(cboState.SelectedItem.ToString) Then
+            strState = cboState.SelectedItem.ToString
         Else
-            MessageBox.Show("Please select a state")
+            MessageBox.Show("Please select a state " & strState)
             Return False
         End If
         Return True
@@ -75,7 +76,10 @@
             dblFica = 0
         End If
     End Sub
-    Public Sub Display(ByVal dblNet As Double, ByVal dblGross As Double, ByVal dblFica As Double, ByVal dblFedTax As Double, ByVal dblStateTax As Double)
+    Public Sub Display(ByRef lbxOutput As ListBox)
+        For Each line As Object In Output
+            lbxOutput.Items.Add(line)
+        Next
 
 
     End Sub

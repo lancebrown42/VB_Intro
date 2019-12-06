@@ -27,6 +27,7 @@
 
         If GetValidateInput(dblPrevGross, strState, dblHours, dblRate) Then
             Calculate(dblNet, dblFica, dblStateTax, dblFedTax, dblPrevGross, dblGross, dblHours, dblRate, strState)
+            Display(lbxOutput)
 
         End If
     End Sub
@@ -53,10 +54,16 @@
     End Function
     Private Sub Calculate(ByRef dblNet As Double, ByRef dblFica As Double, ByRef dblStateTax As Double, ByRef dblFedTax As Double, ByVal dblPreviousGross As Double, ByRef dblGross As Double, ByVal dblHours As Double, ByVal dblRate As Double, ByVal strState As String)
         dblGross = dblRate * Math.Min(dblHours, 40) + (OvertimeRate * dblRate * (Math.Max(dblHours, 40) - 40)) 'whew
+        Output(0) = Output(0) & dblGross
         dblStateTax = dblGross * StateTax(strState)
+        Output(2) = Output(2) & dblStateTax
         FederalTaxCalc(dblGross, dblFedTax)
+        Output(3) = Output(3) & dblFedTax
         FicaCalc(dblPreviousGross, dblGross, dblFica)
+        Output(1) = Output(1) & dblFica
         dblNet = dblGross - dblFica - dblStateTax - dblFedTax
+        Output(4) = Output(4) & dblNet
+
     End Sub
 
     Private Sub SubmitToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles SubmitToolStripMenuItem1.Click

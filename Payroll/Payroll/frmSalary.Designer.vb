@@ -49,7 +49,7 @@ Partial Class frmSalary
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(73, 109)
+        Me.Label4.Location = New System.Drawing.Point(70, 120)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(36, 13)
         Me.Label4.TabIndex = 15
@@ -58,7 +58,7 @@ Partial Class frmSalary
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(17, 83)
+        Me.Label3.Location = New System.Drawing.Point(14, 94)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(92, 13)
         Me.Label3.TabIndex = 14
@@ -67,7 +67,7 @@ Partial Class frmSalary
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(51, 57)
+        Me.Label2.Location = New System.Drawing.Point(48, 68)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(58, 13)
         Me.Label2.TabIndex = 13
@@ -76,7 +76,7 @@ Partial Class frmSalary
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(52, 31)
+        Me.Label1.Location = New System.Drawing.Point(49, 42)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(57, 13)
         Me.Label1.TabIndex = 12
@@ -113,15 +113,15 @@ Partial Class frmSalary
         'lbxOutput
         '
         Me.lbxOutput.FormattingEnabled = True
-        Me.lbxOutput.Location = New System.Drawing.Point(283, 16)
+        Me.lbxOutput.Location = New System.Drawing.Point(289, 27)
         Me.lbxOutput.Name = "lbxOutput"
-        Me.lbxOutput.Size = New System.Drawing.Size(262, 160)
+        Me.lbxOutput.Size = New System.Drawing.Size(203, 108)
         Me.lbxOutput.TabIndex = 16
         '
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(77, 138)
+        Me.Label6.Location = New System.Drawing.Point(74, 149)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(32, 13)
         Me.Label6.TabIndex = 18
@@ -143,7 +143,7 @@ Partial Class frmSalary
         Me.grpInput.Controls.Add(Me.txtPreviousGross)
         Me.grpInput.Controls.Add(Me.txtLastName)
         Me.grpInput.Controls.Add(Me.txtFirstName)
-        Me.grpInput.Location = New System.Drawing.Point(106, 16)
+        Me.grpInput.Location = New System.Drawing.Point(103, 27)
         Me.grpInput.Name = "grpInput"
         Me.grpInput.Size = New System.Drawing.Size(144, 151)
         Me.grpInput.TabIndex = 19
@@ -151,7 +151,7 @@ Partial Class frmSalary
         '
         'btnClose
         '
-        Me.btnClose.Location = New System.Drawing.Point(292, 200)
+        Me.btnClose.Location = New System.Drawing.Point(289, 211)
         Me.btnClose.Name = "btnClose"
         Me.btnClose.Size = New System.Drawing.Size(75, 23)
         Me.btnClose.TabIndex = 22
@@ -160,7 +160,7 @@ Partial Class frmSalary
         '
         'btnClear
         '
-        Me.btnClear.Location = New System.Drawing.Point(211, 200)
+        Me.btnClear.Location = New System.Drawing.Point(208, 211)
         Me.btnClear.Name = "btnClear"
         Me.btnClear.Size = New System.Drawing.Size(75, 23)
         Me.btnClear.TabIndex = 21
@@ -169,7 +169,7 @@ Partial Class frmSalary
         '
         'btnSubmit
         '
-        Me.btnSubmit.Location = New System.Drawing.Point(130, 200)
+        Me.btnSubmit.Location = New System.Drawing.Point(127, 211)
         Me.btnSubmit.Name = "btnSubmit"
         Me.btnSubmit.Size = New System.Drawing.Size(75, 23)
         Me.btnSubmit.TabIndex = 20
@@ -181,7 +181,7 @@ Partial Class frmSalary
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SubmitToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(574, 24)
+        Me.MenuStrip1.Size = New System.Drawing.Size(511, 24)
         Me.MenuStrip1.TabIndex = 23
         Me.MenuStrip1.Text = "MenuStrip1"
         '
@@ -195,26 +195,26 @@ Partial Class frmSalary
         'SubmitToolStripMenuItem1
         '
         Me.SubmitToolStripMenuItem1.Name = "SubmitToolStripMenuItem1"
-        Me.SubmitToolStripMenuItem1.Size = New System.Drawing.Size(180, 22)
+        Me.SubmitToolStripMenuItem1.Size = New System.Drawing.Size(112, 22)
         Me.SubmitToolStripMenuItem1.Text = "Submit"
         '
         'ClearToolStripMenuItem
         '
         Me.ClearToolStripMenuItem.Name = "ClearToolStripMenuItem"
-        Me.ClearToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.ClearToolStripMenuItem.Size = New System.Drawing.Size(112, 22)
         Me.ClearToolStripMenuItem.Text = "Clear"
         '
         'CloseToolStripMenuItem
         '
         Me.CloseToolStripMenuItem.Name = "CloseToolStripMenuItem"
-        Me.CloseToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.CloseToolStripMenuItem.Size = New System.Drawing.Size(112, 22)
         Me.CloseToolStripMenuItem.Text = "Close"
         '
         'frmSalary
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(574, 292)
+        Me.ClientSize = New System.Drawing.Size(511, 266)
         Me.Controls.Add(Me.MenuStrip1)
         Me.Controls.Add(Me.btnClose)
         Me.Controls.Add(Me.btnClear)

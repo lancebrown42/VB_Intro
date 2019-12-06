@@ -133,13 +133,14 @@ Partial Class frmHourly
         Me.lbxOutput.FormattingEnabled = True
         Me.lbxOutput.Location = New System.Drawing.Point(304, 21)
         Me.lbxOutput.Name = "lbxOutput"
-        Me.lbxOutput.Size = New System.Drawing.Size(262, 186)
+        Me.lbxOutput.Size = New System.Drawing.Size(172, 121)
         Me.lbxOutput.TabIndex = 10
         '
         'cboState
         '
+        Me.cboState.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append
         Me.cboState.FormattingEnabled = True
-        Me.cboState.Items.AddRange(New Object() {"Ohio", "Kentucky", "Indiana"})
+        Me.cboState.Items.AddRange(New Object() {"Indiana", "Kentucky", "Ohio"})
         Me.cboState.Location = New System.Drawing.Point(8, 146)
         Me.cboState.Name = "cboState"
         Me.cboState.Size = New System.Drawing.Size(121, 21)
@@ -200,7 +201,7 @@ Partial Class frmHourly
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SubmitToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(610, 24)
+        Me.MenuStrip1.Size = New System.Drawing.Size(507, 24)
         Me.MenuStrip1.TabIndex = 17
         Me.MenuStrip1.Text = "MenuStrip1"
         '
@@ -214,26 +215,26 @@ Partial Class frmHourly
         'SubmitToolStripMenuItem1
         '
         Me.SubmitToolStripMenuItem1.Name = "SubmitToolStripMenuItem1"
-        Me.SubmitToolStripMenuItem1.Size = New System.Drawing.Size(180, 22)
+        Me.SubmitToolStripMenuItem1.Size = New System.Drawing.Size(112, 22)
         Me.SubmitToolStripMenuItem1.Text = "Submit"
         '
         'ClearToolStripMenuItem
         '
         Me.ClearToolStripMenuItem.Name = "ClearToolStripMenuItem"
-        Me.ClearToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.ClearToolStripMenuItem.Size = New System.Drawing.Size(112, 22)
         Me.ClearToolStripMenuItem.Text = "Clear"
         '
         'CloseToolStripMenuItem
         '
         Me.CloseToolStripMenuItem.Name = "CloseToolStripMenuItem"
-        Me.CloseToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.CloseToolStripMenuItem.Size = New System.Drawing.Size(112, 22)
         Me.CloseToolStripMenuItem.Text = "Close"
         '
         'frmHourly
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(610, 307)
+        Me.ClientSize = New System.Drawing.Size(507, 307)
         Me.Controls.Add(Me.btnClose)
         Me.Controls.Add(Me.btnClear)
         Me.Controls.Add(Me.btnSubmit)
