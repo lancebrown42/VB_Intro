@@ -10,18 +10,15 @@
             input.BackColor = Color.Empty
         Next
         lbxOutput.Items.Clear()
+        InitOutputTemplate()
     End Sub
 
     Private Sub btnSubmit_Click(sender As Object, e As EventArgs) Handles btnSubmit.Click
-        Dim strName As String
-        Dim dblPrevGross As Double
-        Dim strState As String
-        Dim dblGross As Double
-        Dim dblNet As Double
-        Dim dblFica As Double
-        Dim dblStateTax As Double
-        Dim dblFedTax As Double
-
+        For Each input As Control In grpInput.Controls
+            input.BackColor = Color.Empty
+        Next
+        InitOutputTemplate()
+        lbxOutput.Items.Clear()
         Dim dblHours As Double
         Dim dblRate As Double
 
@@ -54,15 +51,8 @@
     End Function
     Private Sub Calculate(ByRef dblNet As Double, ByRef dblFica As Double, ByRef dblStateTax As Double, ByRef dblFedTax As Double, ByVal dblPreviousGross As Double, ByRef dblGross As Double, ByVal dblHours As Double, ByVal dblRate As Double, ByVal strState As String)
         dblGross = dblRate * Math.Min(dblHours, 40) + (OvertimeRate * dblRate * (Math.Max(dblHours, 40) - 40)) 'whew
-        Output(0) = Output(0) & dblGross
-        dblStateTax = dblGross * StateTax(strState)
-        Output(2) = Output(2) & dblStateTax
-        FederalTaxCalc(dblGross, dblFedTax)
-        Output(3) = Output(3) & dblFedTax
-        FicaCalc(dblPreviousGross, dblGross, dblFica)
-        Output(1) = Output(1) & dblFica
-        dblNet = dblGross - dblFica - dblStateTax - dblFedTax
-        Output(4) = Output(4) & dblNet
+        Output(0) = Output(0) & dblGross.ToString("c")
+        CalcCommon(dblStateTax, dblGross, strState, dblFedTax, dblPreviousGross, dblFica, dblNet)
 
     End Sub
 

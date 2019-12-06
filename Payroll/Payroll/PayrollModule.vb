@@ -5,7 +5,17 @@
     Public Const OvertimeRate As Double = 1.5
     Public Const FicaRate As Double = 0.062
     Public Const FicaMax As Integer = 125000
-    Public Output As List(Of String) = New List(Of String) From {"Gross Pay: " & vbTab, "FICA: " & vbTab & vbTab, "State Tax: " & vbTab, "Federal Tax: " & vbTab, "Net Pay: " & vbTab & vbTab}
+    Public Output As List(Of String)
+
+    Public strName As String
+    Public dblPrevGross As Double
+    Public strState As String
+    Public dblGross As Double
+    Public dblNet As Double
+    Public dblFica As Double
+    Public dblStateTax As Double
+    Public dblFedTax As Double
+
     Public Sub InputError(input As Control)
         input.BackColor = Color.Yellow
         input.Select()
@@ -36,7 +46,7 @@
             MessageBox.Show("Please enter previous gross pay")
             Return False
         End If
-        If Not String.IsNullOrWhiteSpace(cboState.SelectedItem.ToString) Then
+        If Not String.IsNullOrWhiteSpace(cboState.SelectedItem) Then
             strState = cboState.SelectedItem.ToString
         Else
             MessageBox.Show("Please select a state " & strState)
@@ -44,6 +54,16 @@
         End If
         Return True
     End Function
+    Public Sub CalcCommon(ByRef dblStateTax As Double, ByVal dblGross As Double, ByVal strState As String, ByRef dblFedTax As Double, ByVal dblPreviousGross As Double, ByRef dblFica As Double, ByRef dblNet As Double)
+        dblStateTax = dblGross * StateTax(strState)
+        Output(2) = Output(2) & dblStateTax.ToString("c")
+        FederalTaxCalc(dblGross, dblFedTax)
+        Output(3) = Output(3) & dblFedTax.ToString("c")
+        FicaCalc(dblPreviousGross, dblGross, dblFica)
+        Output(1) = Output(1) & dblFica.ToString("c")
+        dblNet = dblGross - dblFica - dblStateTax - dblFedTax
+        Output(4) = Output(4) & dblNet.ToString("c")
+    End Sub
     Public Sub FederalTaxCalc(ByVal dblGross As Double, ByRef dblFedTax As Double)
 
         Dim bracket As Integer = 5000
@@ -83,4 +103,8 @@
 
 
     End Sub
+    Public Sub InitOutputTemplate()
+        Output = New List(Of String) From {"Gross Pay: " & vbTab, "FICA: " & vbTab & vbTab, "State Tax: " & vbTab, "Federal Tax: " & vbTab, "Net Pay: " & vbTab & vbTab}
+    End Sub
+
 End Module
