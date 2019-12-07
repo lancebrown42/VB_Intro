@@ -1,13 +1,12 @@
 ﻿Module PayrollModule
     Public Const PayPeriods As Integer = 52
-    Public ReadOnly StateTax As New Dictionary(Of String, Double) From {{"Ohio", 0.065}, {"Kentucky", 0.06}, {"Indiana", 0.55}}
+    Public ReadOnly StateTax As New Dictionary(Of String, Double) From {{"Ohio", 0.065}, {"Kentucky", 0.06}, {"Indiana", 0.055}}
     Public ReadOnly FedTaxThresholds As New List(Of Integer) From {50, 500, 2500, 5000}
     Public Const OvertimeRate As Double = 1.5
     Public Const FicaRate As Double = 0.062
     Public Const FicaMax As Integer = 125000
     Public Output As List(Of String)
 
-    Public strName As String
     Public dblPrevGross As Double
     Public strState As String
     Public dblGross As Double
@@ -49,7 +48,8 @@
         If Not String.IsNullOrWhiteSpace(cboState.SelectedItem) Then
             strState = cboState.SelectedItem.ToString
         Else
-            MessageBox.Show("Please select a state " & strState)
+            InputError(cboState)
+            MessageBox.Show("Please select a state ")
             Return False
         End If
         Return True

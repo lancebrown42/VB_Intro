@@ -138,7 +138,7 @@ Partial Class frmHourly
         '
         'cboState
         '
-        Me.cboState.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append
+        Me.cboState.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboState.FormattingEnabled = True
         Me.cboState.Items.AddRange(New Object() {"Indiana", "Kentucky", "Ohio"})
         Me.cboState.Location = New System.Drawing.Point(8, 146)

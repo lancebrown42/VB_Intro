@@ -129,6 +129,7 @@ Partial Class frmSalary
         '
         'cboState
         '
+        Me.cboState.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboState.FormattingEnabled = True
         Me.cboState.Items.AddRange(New Object() {"Ohio", "Kentucky", "Indiana"})
         Me.cboState.Location = New System.Drawing.Point(6, 119)
